@@ -4,7 +4,7 @@ let accountEmail = "tulsi124@gmail.com"
 var accountPassword = "456123"
 accountCity = "Rourkela" //it also works, but its preferable to define it with const or let
 
-// accountId = 7894251 //not allowed to change consants
+// accountId = 789 //not allowed 
 console.log(accountId);
 
 accountEmail = "tkp2gmail.com"
