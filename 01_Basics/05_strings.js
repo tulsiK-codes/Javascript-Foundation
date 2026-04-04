@@ -139,14 +139,70 @@ const helloStr = "hello world"
  */
 /* c   a   n   a   l
    0   1   2   3   4 */
-console.log("canal".lastIndexOf("a")); // returns 3
-console.log("canal".lastIndexOf("a", 2)); // returns 1
+// console.log("canal".lastIndexOf("a")); // returns 3
+// console.log("canal".lastIndexOf("a", 2)); // returns 1
 "canal".lastIndexOf("a", 0); // returns -1
 "canal".lastIndexOf("x"); // returns -1
 "canal".lastIndexOf("c", -5); // returns 0
 "canal".lastIndexOf("c", 0); // returns 0
 "canal".lastIndexOf(""); // returns 5
 "canal".lastIndexOf("", 2); // returns 2
+
+
+//isWellFormed - checks for lone surrogate pair (out of a unicode pair, only one is present)
+let wellFormStr = "a\uDFFFbc";
+let str2 = "ab\uD83D\uDE04c"
+// console.log(wellFormStr.isWellFormed());
+// console.log(str2.isWellFormed());
+// console.log(wellFormStr.toWellFormed());
+// console.log(str2.toWellFormed());
+
+
+//localeCompare() method of String values returns a number indicating whether this string comes before, or after, or is the same as the given string in sort order
+const a = "réservé"; // With accents, lowercase
+const b = "RESERVE"; // No accents, uppercase
+/*localeCompare(compareString)
+localeCompare(compareString, locales)
+localeCompare(compareString, locales, options)*/
+// console.log(a.localeCompare(b)); // Expected output: 1
+// console.log(a.localeCompare(b, "en", { sensitivity: "base" })); // Expected output: 0
+
+
+
+// match() method of String values retrieves the result of matching this string against a regular expression
+const paragraph = "The quick brown fox jumps over the lazy dog. It barked.";
+const regex = /[A-Z]/g;
+const found = paragraph.match(regex);
+
+// console.log(found);
+
+const para2 = "The quick brown fox jumps over the lazy dog. It barked.";
+const capturingRegex = /(?<animal>fox|cat) jumps over/;
+const found2 = para2.match(capturingRegex);
+// console.log(found2.groups); // {animal: "fox"}
+
+
+//The matchAll() method of String values returns an iterator of all results matching this string against a regular expression, including capturing groups.
+const regexp = /t(e)(st(\d?))/g;
+const strMatch = "test1test2";
+
+const array = [...strMatch.matchAll(regexp)];
+
+// console.log(array[0]);
+// console.log(array[1]);
+
+//using iterator
+const regexp2 = /foo[a-z]*/g;
+const strMatch2 = "table football, foosball";
+const matches = strMatch2.matchAll(regexp2);
+
+for (const match of matches) {
+  console.log(
+    `Found ${match[0]} start=${match.index} end=${
+      match.index + match[0].length
+    }.`,
+  );
+}
 
 
 
