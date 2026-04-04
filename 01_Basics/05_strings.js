@@ -99,12 +99,7 @@ const greetList = ["Hello", " ", "Tulsi", "!"];//array
 
 /* endsWith(searchString)
 */
-const greet = "Have a nice day!"
-// console.log(greet.endsWith("day!")); //true
-// console.log(greet.length)
-// endsWith(searchString, endPosition)--> endPosition is not indicating the index but the count or length
-// console.log(greet.endsWith("day!",greet.length)); //true, becox checks the count, not index
-// TypeError: Thrown if searchString is a regex
+
 
 
 /*includes(searchString) */
