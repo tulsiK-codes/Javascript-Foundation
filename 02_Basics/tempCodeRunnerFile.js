@@ -1,2 +1,0 @@
-sses)
-console.log(allCharacters);

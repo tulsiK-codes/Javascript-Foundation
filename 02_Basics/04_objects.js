@@ -77,6 +77,8 @@ console.log(instructor); //Hitesh, here instead of writing course.courseinstruct
 
 //~~~~~~~~~~~~~JSON file formats~~~~~~~~~~~~~~~
 
+//Example - Random User Generator API
+
 // {
 //     "name": "tulsi",
 //     "qualification": "BCS graduate",
