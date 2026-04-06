@@ -1,0 +1,2 @@
+sses)
+console.log(allCharacters);
