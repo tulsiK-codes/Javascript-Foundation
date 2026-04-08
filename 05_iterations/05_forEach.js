@@ -1,7 +1,6 @@
 //forEach
 //It always returns undefined and is not chainable
 // You cannot stop or break a forEach() loop except by throwing an exception
-//
 
 
 
