@@ -3,11 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background: #212121;
+            color: #fff;
+        }
+    </style>
 </head>
-<body>
-    <div class="bg-black">
-        <h1 class="heading">DOM Manipulation</h1>
-    <p>Lorem ipsum dolor sit amet.</p>
+<body class="bg-black">
+    <div>
+        <h1 id = "title" class="heading">DOM Manipulation <span style="display: none;">By Hitesh Sir</span></h1>
+
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+
+        <p>Lorem ipsum dolor sit amet.</p>
+
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
     </div>
 </body>
 </html>
+
+<!-- Javascript on console for understanding DOM -->
+
+<!-- Notes of lecture 1 about DOM(inside conside console of a website)-->
+ <!-- console.log(window)
+ console.log(window.document)
+ console.log(document)
+ console.log(document.baseURI)
+
+ console.log(document.links)->HTML Collection returned
+ console.log(document.links[2])->gives the 2nd link
+
+ document
+ document.getElementById
+ document.getElementsByClassname 
+ document.getElementById('firstHeading').innerHTML = "<h1>Hello, Tulsi Happy Learning</h1>"
+ -->
+
+ <!-- Notes of DOM selectors -->
+<!-- 
+ getElementById
+ document.getElementById('title')
+ const title = document.getElementById('title')
+ document.getElementById('title').id
+ document.getElementById('title').class ->>Doesn't work
+ document.getElementById('title').className ->>it works
+ document.getElementById('title').getAttribute('id')
+ document.getElementById('title').getAttribute('class')
+ title.style.backgroundColor = "yellow"
+ title.style.padding = "10px'
+ title.style.borderRadius = "5px"
+
+ title.innerText -- 'DOM Manipulation'
+ title.textContent -- 'DOM Manipulation By Hitesh Sir'
+ title.innerHTML -- 'DOM Manipulation <span style="display: none;">By Hitesh Sir</span>'
+
+ innerText - only shows the visible text
+ textContent - shows the hidden text contents also
+ innerHTML - supports HTML also
+
+-->
+
+<!--++++++ More about DOM selecctors +++++++-->
+<!-- 
+querySelector - used to select documents from the document using the basic css selectors
+
+const H3 = document.querySelectorAll('h3')//Nodelist returned
+
+H3.length //28
+
+H3.forEach((h) => {
+    h.style.fontStyle = "italic";
+    h.style.color = "yellow";
+    h.style.backgroundColor = "blue";
+    h.style.padding = "10px";
+    h.style.borderRAdius = "5px";
+});
+
+H3.entries()
+Array Iterator {}constructor: ƒ Iterator()[[Prototype]]: Array Iterator
+
+const arrNodeH3 = Array.from(H3)
+undefined
+arrNodeH3.find((h) => h.textContent.includes("Growth"))
+<h3 id=​"Growth_and_standardization">​Growth and standardization​</h3>​
+
+
+const tableOfContents = document.querySelectorAll('.toc')
+
+const titles = document.querySelectorAll('#History')
+
+
+const UL = document.querySelector('ul')
+const getLi = UL.querySelectorAll('li')
+getLi returns a NodeList
+
+getLi[2].style.backgroundColor = "yellow"
+
+getLi.forEach((li) => {
+    li.style.backgroundColor = "yellow";
+    li.style.color = "black";
+    li.style.padding = "10px";    
+    li.style.borderRadius = "6px"
+})
+
+getLi.forEach((li) => {
+    li.style.marginBottom = "20px"
+})
+
+const H2 = document.getElementsByClassName('list-item')
+H2 - returns HTMLCollection
+
+const h2Arr = Array.from(H2) //Converted to array
+h2Arr[3] - behaves same as arrays 
+-->
