@@ -33,14 +33,18 @@ const newArr = myArr.join()
 // console.log(myArr); //the array is returned
 
 //slice,splice
-console.log(`A, ${myArr}`);//A, 0,1,2,3,4,5,6
+// console.log(`A, ${myArr}`);//A, 0,1,2,3,4,5,6
 
 const new1 = myArr.slice(1,4)//Syntax: slice(start, end) and return copy of array starting and excluding end
 
-console.log(`new1 = ${new1}`);//new1 = 1,2,3
-console.log(`B, ${myArr}`);//B, 0,1,2,3,4,5,6
+// console.log(`new1 = ${new1}`);//new1 = 1,2,3
+// console.log(`B, ${myArr}`);//B, 0,1,2,3,4,5,6 -> does not change the original array
 
 const new2 = myArr.splice(1,4) //Syntax: splice(start,deleteCount) -> removes elements from start index, if deleteCount not specified then delete all the elements
 
-console.log(`new2 = ${new2}`);//new2 = 1,2,3,4
-console.log(`C, ${myArr}`);//C, 0,5,6
+// console.log(`new2 = ${new2}`);//new2 = 1,2,3,4
+console.log(`C, ${myArr}`);//C, 0,5,6 -> original array mutated(changed)
+
+const new3 = myArr.splice(1,2,1,2,3) //Here starting from index 1, deleteCount = 2, so delete 2 elements and add new elements(1,2,3)
+console.log(`new3 = ${new3}`);
+console.log(`D, ${myArr}`);
