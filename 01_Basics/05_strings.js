@@ -94,7 +94,7 @@ const greetList = ["Hello", " ", "Tulsi", "!"];//array
 "".concat(4, 5); // "45"
 //Better alternative
 // console.log(`Hello ${"Tulsi"}!`);
-// console.log(greetList.join("")); //Works on array elements(Takes all elements of the array, and converts them into String using diven seperator)
+// console.log(greetList.join("")); //Works on array elements(Takes all elements of the array, and converts them into String using given seperator)
 // console.log([1, 3, true].join("-"));
 
 /* endsWith(searchString)
@@ -112,7 +112,7 @@ const greetList = ["Hello", " ", "Tulsi", "!"];//array
 
 //indexOf() -> index of the first occurrence of searchString found, or -1 if not found
 const helloStr = "hello world"
-// console.log(helloStr.indexOf('o', -5)); //-5 considered 0. If position is less than zero, the method behaves as it would if position were 0.
+// console.log(helloStr.indexOf('o', -5)); //4. If position is less than zero, the method behaves as it would if position were 0.
 // console.log(helloStr.indexOf('world', 99));//99 index is invalid. If position is greater than the length of the calling string, the method doesn't search the calling string at all and returns -1.
 
 // indexOf(searchString, position)
@@ -166,10 +166,10 @@ localeCompare(compareString, locales, options)*/
 
 // match() method of String values retrieves the result of matching this string against a regular expression
 const paragraph = "The quick brown fox jumps over the lazy dog. It barked.";
-const regex = /[A-Z]/g;
+// const regex = /[A-Z]/g;
 const found = paragraph.match(regex);
 
-// console.log(found);
+console.log(found);
 
 const para2 = "The quick brown fox jumps over the lazy dog. It barked.";
 const capturingRegex = /(?<animal>fox|cat) jumps over/;
