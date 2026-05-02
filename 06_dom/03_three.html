@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Element with DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    // Create an element using DOM
+    const div = document.createElement('div');
+    console.log(div);
+    // setting attributes
+    div.className = "main";
+    div.id = "main-container";
+    // div.id = Math.round(Math.random() * 10 + 1);
+    div.setAttribute("title","main-card");
+
+    //Styling of the created element
+    div.style.backgroundColor = "green";
+    div.style.padding = "10px";
+
+
+    // div.innerText = "Hello coder" //this way is not used, as it overwrites and needs 2 round-trips
+    const addText = document.createTextNode("Happy Coding");
+    div.appendChild(addText);//doesn't overwrite
+
+    //Append the created 'div' to the body
+    document.body.appendChild(div);
+
+    /*Difference between append() and appendChild()
+    1 .append accepts Node objects and DOMStrings while .appendChild accepts only Node objects
+    2 .append does not have a return value while .appendChild returns the appended Node object
+    3 .append allows you to add multiple items while appendChild allows only a single item*/
+</script>
+</html>
