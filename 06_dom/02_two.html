@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>DOM (parent and child relation)</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    // Parent Child Relationship
+    const parent = document.querySelector('.parent')
+    // console.log(parent);    
+
+    //***Getting the children from parent***
+    // console.log(parent.children);//HTMLCollection
+    // console.log(parent.children[0]);
+    // console.log(parent.children[0].innerText);
+    
+    /*Iterating the HTMLCollection from parent.children*/
+    for (let i = 0; i < parent.children.length; i++) {
+        // console.log(parent.children[i].innerHTML);        
+    }
+
+    /*Styling by selecting children from its parent*/
+    parent.children[2].style.color = "green"
+    parent.children[2].style.fontWeight = "bold";
+    parent.children[2].style.fontFamily = "sans-serif";
+
+    /*Getting the first & last children*/
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    
+
+    /*Can we access the parent from the child?Yes*/
+    const childOne = document.querySelector('.day');//Selects the first child
+    // console.log(childOne);
+    // console.log(childOne.parentElement);
+    // console.log(childOne.parentNode);
+    
+    //Difference between parentElement and parentNode
+    const html = document.documentElement;
+    // console.log(html.parentNode); //#document returned, its a node not element
+    // console.log(html.parentElement); //Returns null
+
+    //Getting the sibling or next element
+    // console.log(childOne.nextElementSibling);//returns <div class="day">Tuesday</div>
+    // console.log(childOne.nextSibling); //returns #text, which has textContent: "\n"
+    
+    //childNodes
+    console.log("NODES: ", parent.childNodes);
+    
+</script>
+</html>
