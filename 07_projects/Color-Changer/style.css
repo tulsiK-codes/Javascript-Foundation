@@ -1,0 +1,81 @@
+:root {
+    --color-grey: #808080;
+    --color-blue: #00d5ff;
+    --color-pink: #ffc0cb;
+    --color-orange: #ffc800;
+    --color-black: #212121;
+    /* --nav-background: rgb(232, 231, 231); */
+    --background: #e2e2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh; 
+}
+
+nav {
+    margin: 1rem;
+    padding: 8px 0px;
+    background-color: var(--background);
+    border-radius: 5px;
+}
+nav a {
+    text-decoration: none;
+    padding: 5px 10px;
+    color: var(--color-black);
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    /* border: 1px solid; */
+}
+nav a::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: var(--color-black);
+    transition: width 0.3s;
+}
+nav a:hover::after{
+    width: 50%;
+}
+
+.canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+.switch {
+    display: flex;
+}
+.button {
+    height: 4rem;
+    width: 4rem;
+    border: 1px solid;
+    margin-right: 1.2rem;
+    cursor: pointer;
+}
+.button--grey {
+    background-color: var(--color-grey);
+}
+.button--pink {
+    background-color: var(--color-pink);
+}
+.button--blue {
+    background-color: var(--color-blue);
+}
+.button--orange {
+    background-color: var(--color-orange);
+}
+span {
+    display: block;
+}
