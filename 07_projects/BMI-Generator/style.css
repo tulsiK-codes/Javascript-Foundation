@@ -1,0 +1,30 @@
+body {
+    background-color: #212121;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+#height,
+#weight {
+    width: 150px;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    margin-left: 50px;
+    border-radius: 10px;
+}
+#results {
+    font-size: 25px;
+    margin: 30px 0px;
+}
