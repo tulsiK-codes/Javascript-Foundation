@@ -16,10 +16,10 @@ let randomNum = parseInt((Math.random() * 100) + 1);
 
 //HTML node selectors
 const userInput = document.querySelector('#guessField');
-const submit = document.querySelector('#subt'); 
+const submit = document.querySelector('#submitBtn'); 
 const startOver = document.querySelector('.resultParas'); 
 const guessSlot = document.querySelector('.guesses'); 
-const remaining = document.querySelector('.lastResult'); 
+const remaining = document.querySelector('.guessCount'); 
 const lowOrHi = document.querySelector('.lowOrHi'); 
 
 const p = document.createElement('p');
@@ -86,7 +86,7 @@ function endGame (){
   userInput.value = '';
   userInput.setAttribute('disabled', '');
   p.classList.add('button');
-  p.innerHTML = `<h2 id="newGame">Play Again!</h2>`;
+  p.innerHTML = `<h2 id="newGame" class="play-again-btn">Play Again!</h2>`; 
   startOver.appendChild(p);
   playGame = false;
   newGame();
@@ -98,6 +98,7 @@ function newGame (){//Resetting everything
     randomNum = parseInt((Math.random() * 100) + 1);
     prevGuess = [];
     numGuess = 1
+    lowOrHi.innerHTML = '';
     guessSlot.innerHTML = '';
     remaining.innerHTML = `${11 - numGuess}`;
     userInput.removeAttribute('disabled');
@@ -105,3 +106,4 @@ function newGame (){//Resetting everything
     playGame = true;
   });  
 }
+
