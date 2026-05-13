@@ -25,7 +25,7 @@ NodeList{0: {…}, 1: {…}, 2: {…}, 3: {…}}
 //Selecting each button with forEach() and running a funtion to add event-listeners on click, and change the backgroundColor
 colorChangers.forEach((button) => {
 button.addEventListener('click',function(e) {
-  document.body.style.backgroundColor = e.currentTarget.dataset.color;
+  document.body.style.backgroundColor = e.target.dataset.color;
 });
 });
 
