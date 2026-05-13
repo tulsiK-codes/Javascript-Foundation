@@ -10,7 +10,7 @@
     <div>
         <ul id="images">
             <li>
-                <img width="200px" id="" src="https://images.pexels.com/photos/14162834/pexels-photo-14162834.jpeg" alt="sunset"></li>
+                <img width="200px" id="sunset" src="https://images.pexels.com/photos/14162834/pexels-photo-14162834.jpeg" alt="sunset"></li>
             <li>
                 <img width="200px" id="sky" src="https://images.pexels.com/photos/5573078/pexels-photo-5573078.jpeg" ></li>
             <li>
@@ -27,4 +27,115 @@
         </ul>
     </div>
 </body>
+<script>
+    //addEventListener(), HTML event handler attributes (inline), DOM property handlers
+
+    //HTML Event Attributes (events directly added to HTML tags)
+
+    /*<img width="200px" id="mirror" src="../mirror.jpg" onclick="alert('Mirror clicked')">*/
+
+    /*DOM Property Handlers (Javascript)
+    Here, functions assigned to element's event properties*/
+    // document.getElementById('girl').onclick = function() {
+    //     alert("Clicked girl image");
+    // };
+
+    /*Limitations in the above methods
+    1. Single Handler Only(could not add multiple listeners for same event) - if you add two onclick functions, last one would overwrite
+
+    2. No Capturing Phase: only handles event in target/bubbling phase and not in the capturing phase*/
+
+    /*attachEvent() was used to register event handlers in Internet Explorer(no longer supported)
+    */
+
+   /*.on() method is the standard, modern way to attach event handlers in jQuery.
+   It binds all event types. To remove the event handlers later, .off() method used*/
+
+
+   //addEventListener
+    document.getElementById('sunset').addEventListener('click', function(e) {
+        // alert("sunset view clicked");
+    }, false);
+
+    //event propagation (event bubbling & event capturing)
+    document.getElementById('images').addEventListener('click', function(e) {
+        // console.log("Clicked inside ul");
+    }, false);
+    document.getElementById('flower').addEventListener('click', function(e) {
+        // console.log("Flower clicked");
+    }, false);
+    /*When the flower is clicked - we get  Flower clicked then Clicked inside ul. Its Event Bubbling*/
+
+    //The above case was with 3rd argument being 'false'
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log("Clicked inside ul");
+    // }, true);
+    // document.getElementById('flower').addEventListener('click', function(e) {
+    //     console.log("Flower clicked");
+    // }, true);
+    // The opposite happens here, Clicked inside ul then Flower clicke. Its Event Capturing
+
+
+    //How the event propagation happens when the 3rd argument is false or true?
+
+    /* When false/default - listeners wait for the event to bubble up from the bottom(Bottom-up). This default propagation can also be stopped by event.stopPropagation().
+    */
+    
+    /* When true - The event trickles down(like a drop of water falling down) from the root (window, document, body) until it reaches the parent, of the event clicked
+    */
+
+    document.getElementById('girl').addEventListener('click', function(e) {
+        // console.log("Girl photo clicked");
+        e.preventDefault(); //To prevent default action
+        e.stopPropagation(); //to stop default propagation
+    }, false);
+    document.getElementById('X_link').addEventListener('click', function(e) {
+        e.preventDefault(); //To prevent default action/opening the link
+        // console.log("Clicked on Link");
+    }, false);
+
+
+    /**********Event (e) **************/
+    document.querySelector('#venice').addEventListener('click', function (e) {
+        console.log(e);
+        e.preventDefault();
+
+    });
+    
+    //Discuss these things about 'event' object
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    /*For above event(e)
+    type: "click"
+    timeStamp: 2454.899999999907
+    defaultPrevented: true
+    clientX: 103
+    clientY: 554
+    screenX: 130
+    screenY: 580
+    shiftKey: false
+    altKey: false
+    ctrlKey: false
+    toElement: null
+    fromElement: null
+
+    Note: srcElement and target point to the exact same DOM node. However, because srcElement is non-standard, it is deprecated.
+    target: img#venice
+    srcElement: img#venice
+    */
+
+    /*REMOVING ELEMENT WITH event.Target*/
+    document.querySelector('#images').addEventListener("click", function (e) {
+        // console.log(e.target.tagName); //IMG, A
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+            // removeIt.parentNode.removeChild(removeIt);
+        }
+    });
+</script>
 </html>
