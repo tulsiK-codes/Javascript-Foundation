@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random color generation</title>
+</head>
+<body style="background-color: #414141; color: #fff;">
+    <h1 id="heading">Setting random background colors</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    function randomNumPrint() {
+        // const randomNum = parseInt((Math.random() * 1000000) + 1);
+        // console.log(randomNum);    
+        // const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        // const randomLetter = characters.charAt(Math.floor(Math.random() * characters.length));
+        // console.log(randomLetter);
+        
+        // console.log(randomChar);
+        const randomChar = Math.random().toString(36).substring(2, 8);
+        let color = `#${randomChar}`;
+        // document.body.style.backgroundColor = `${color}`;
+        //This won't work as alphabets(a-f) are only valid letters for CSS color code. 
+        // And also, Math.random() sometimes generates a short decimal terminating early. If it results in fewer than 7 characters total, your variable might only hold 2 or 3 characters, failing the format rule entirely.
+
+        // document.body.style.backgroundColor = `#808080`;
+        // let bgc = document.querySelector('#heading');
+        // bgc.style.backgroundColor = "#808080";
+        
+    }
+    function getRandomHex() {
+        const hexChars = "0123456789abcdef";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += hexChars[Math.floor(Math.random() * 16)]; //Generates only one character
+        }
+        document.body.style.backgroundColor = color;
+    }
+    getRandomHex() ;
+    getRandomHex() ;
+    // randomNumPrint();
+    // randomNumPrint();
+    // randomNumPrint();
+    // randomNumPrint();
+    // randomNumPrint();
+</script>
+</html>
