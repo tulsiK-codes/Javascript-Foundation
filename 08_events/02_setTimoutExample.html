@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Timeout</title>
+    <!-- Here, we change the heading after 2 sec of loading the page using setTimeout().It has a Stop button, which it pressed before 2 sec the heading wont change-->
+</head>
+<body>
+    <h1>First step to Frontend Development</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    function changeHeading() {
+        document.querySelector('h1').innerHTML = `Javascript is the base of Full Stack`;        
+    }
+    const timeoutId = setTimeout(changeHeading, 2000);
+
+    document.querySelector("#stop").addEventListener('click', function() {
+        clearTimeout(timeoutId);
+    });
+</script>
+</html>
