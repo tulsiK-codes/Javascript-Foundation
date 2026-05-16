@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Requests using XMLhttpRequest</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="apiRequests.css">
 </head>
-<body style="background-color: #414141; color: #fff;">
-    XML HTTPRequest
+<body>
+    <div class="container">
+        <h2>XML HTTP Request</h2>
+        <button id="getFollowerCount" disabled>Loading...</button>        
+    </div>
 </body>
 
 <script>
@@ -20,14 +23,26 @@
 
 //    console.log(xhr.readyState); //this runs once, so its only showing the '1' opened state. But its changing to other states also, which we can track using .onreadyStateChange()
 
-
+    const container = document.querySelector('.container');
+    const followerCountBtn = document.querySelector('#getFollowerCount');
 
    xhr.onreadystatechange = function () {
     console.log(xhr.readyState);
     if(xhr.readyState === 4) {
         const data = JSON.parse(this.responseText)
-        console.log(data);
-        console.log(data.followers);
+        console.log(data);//data loaded and converted to JSON obj
+
+        followerCountBtn.disabled = false;
+        followerCountBtn.textContent = "Show Followers Count";
+        followerCountBtn.addEventListener('click', function () {            
+            container.innerHTML = `
+            <div class="github_card">
+                <h3>Hitesh Choudhary</h3>
+                <img src="${data.avatar_url}" alt="avatart">
+                <p>Followers: <span id="follower_count">${data.followers}</span></p>
+            </div>
+            `;
+        })
     }
    }
    xhr.send();
