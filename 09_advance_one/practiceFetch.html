@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading image using Fetch API</title>
+</head>
+<body>
+    <h1>Flower from Fetch Request</h1>
+    <img src="" alt="Flower">
+
+    <script>
+        const flowerImg = document.querySelector('img');
+
+        // const requestPhoto = ;
+
+        fetch(`https://www.countryliving.com/gardening/garden-ideas/g25230472/purple-flowers/`) // CORS Error
+
+        .then((response) => {
+            if(!response.ok) {
+                throw new Error(`HTTP error, status = ${response.status}`);
+            }
+            return response.blob();
+        }).then((blobImg) => {
+            const flowerURL = URL.createObjectURL(blobImg);
+            flowerImg.src = flowerURL;
+        }).catch((error) => {
+            const p = document.createElement("p");
+            p.appendChild(document.createTextNode(`Error: ${error.message}`));
+            document.body.insertBefore(p, flowerImg);
+        })
+    </script>
+</body>
+</html> -->
