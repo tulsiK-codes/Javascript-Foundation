@@ -16,6 +16,7 @@ const user = {
         
     }
 }
+/**** If we want to store another user, then we will have to create the same object once again with other user details. But this way of doing things is not feasible, thats why a structure is created and using functions and constructors **** */
 
 // console.log(user.username);
 // console.log(user.getUserDetails());
