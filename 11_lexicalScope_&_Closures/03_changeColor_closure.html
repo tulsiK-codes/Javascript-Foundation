@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+</head>
+<body style="background-color: #313131; color: #f0f8ff; font-family: arial;">
+    <h2>Change Background Clors by clicking on the buttons</h2>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    function colorChanger(color) {
+        // document.body.style.backgroundColor = `${color}`;
+        return function () {
+            document.body.style.backgroundColor = `${color}`;
+        }
+    }
+
+    document.getElementById('orange').onclick = colorChanger("orange");
+    document.getElementById('green').onclick = colorChanger("green");
+</script>
+</html>
+
+<!-- The above approach shows how closure help achieve this use case of storing the refernce of function changing colors. And running only when the click event happens.
+ 
+But, I have a doubt that if there are 15 to 20 such buttons on the page? Then add ul-lis and have an addEventListener-->
