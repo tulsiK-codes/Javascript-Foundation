@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimised Change Background Color</title>
+</head>
+<body style="background-color: #313131; color: #f0f8ff; font-family: arial;">
+    <h2>Change Background Clors by clicking on the buttons</h2>
+    <ul id="color-buttons" style="list-style: none; display: flex; gap: 15px; padding: 0;">        
+        <li><button id="orange">Orange</button></li>
+        <li><button id="green">Green</button></li>
+        <li><button id="teal">Teal</button></li>
+        <li><button id="#ffc1cb">Pink</button></li>
+        <li><button id="crimson">Crimson-red</button></li>
+    </ul>
+</body>
+<script>
+    document.querySelector('#color-buttons'),addEventListener('click', function (event) {
+        if (event.target.tagName === 'BUTTON') {
+            const color = event.target.getAttribute('id');
+            // const color = event.target.dataset; ->does not work
+            document.body.style.backgroundColor = color;
+        }
+    });
+</script>
+</html>
