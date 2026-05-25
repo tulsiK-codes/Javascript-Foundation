@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use of closures</title>
+</head>
+<body style="background-color: #313131; color: #f0f8ff; font-family: arial;">
+    <h2>Change font size of body by clicking on the buttons below</h2>
+    <button id="size-1">1 rem</button>
+    <button id="size-1.5">1.5 rem</button>
+    <button id="size-2">2 rem</button>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum aspernatur molestias voluptas magni, eos similique nostrum vero at laborum repellat ut neque beatae aliquid!
+    </p>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quos adipisci veritatis.
+    </p>
+    
+</body>
+<script>
+    function changeFont(size) {
+        return function() {
+            return document.body.style.fontSize = `${size}rem`;
+        };
+    }
+
+    const sizeOne = changeFont(1);
+    const sizeOnehalf = changeFont(1.5);
+    const sizeTwo = changeFont(2);
+
+    document.getElementById('size-1').onclick = sizeOne;
+    document.getElementById('size-1.5').onclick = sizeOnehalf;
+    document.getElementById('size-2').onclick = sizeTwo;
+    //So here, with the help of closure we can store the reference of the changeFont inner fun along with its lexical scope, which allows us to call the reference onclicking the button
+</script>
+</html>
